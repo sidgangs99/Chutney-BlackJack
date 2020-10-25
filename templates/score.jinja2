@@ -1,0 +1,34 @@
+{% extends "index.html" %}
+
+{% block title %}
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+    Results:
+	<h1><font {% if result == 'You won' %} color="yellowgreen" {% elif result == 'You lose' %} color="tomato" {% else %}
+										   color="#CCCC00" {% endif %}><b>{{ result }}</b></font></h1>
+    Your score: {{ user_score }}
+	<br>
+    Dealer's score: {{ computer_score }}
+	<br>
+	<br>
+	<h2>Current Chips: <font {% if result == 'You won' %} color="yellowgreen" {% elif result == 'You lose' %} color="tomato" {% else %}
+										   color="#CCCC00" {% endif %}><b>{{ chip }} ({{ win_chips }})</b></font></h2>
+	<table>
+		<td>
+			<tr>
+					<a href="{{ url_for('index') }}"><button type="submit" value="start_game" class="btn btn-secondary">New Game</button></a>
+			</tr>&emsp;
+			<tr>
+				
+				<a href="{{ url_for('profile') }}"><button type="submit" value="stop" class="btn btn-secondary">Profile</button></a>
+				
+			</tr>
+		</td>
+	</table>
+	
+	
+{% endblock %}
